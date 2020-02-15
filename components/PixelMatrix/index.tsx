@@ -1,12 +1,14 @@
 import React from 'react';
 
+// Interface PixelMatrixProps to validate component incoming prop types
 interface PixelMatrixProps {
   matrix: number[][],
   pixelEnum: any
 }
 
-const PixelMatrix: React.FC<PixelMatrixProps> = ({matrix}) => (
-  <pre>{matrix.map(row => row.map(i => " -|"[i]).join(``)).join(`\n`)}</pre>
+// Stateless react functional component to render matrix with pixelEnum
+const PixelMatrix: React.SFC<PixelMatrixProps> = ({ matrix, pixelEnum }) => (
+  <pre>{matrix.map(row => row.map(i => pixelEnum[i]).join(``)).join(`\n`)}</pre>
 )
 
 export default PixelMatrix;

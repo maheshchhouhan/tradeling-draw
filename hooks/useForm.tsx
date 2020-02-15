@@ -1,6 +1,10 @@
-import {useReducer} from 'react';
+import { useReducer } from 'react';
 
-interface IAction{
+// Importing check properties to validate object values are empty
+import { checkProperties } from '../helpers/index';
+
+// action interface to validate action input's
+interface IAction {
   type: string,
   payload: {
     name: string,
@@ -8,38 +12,33 @@ interface IAction{
   }
 }
 
+// form reducer for all form components
 const reducer = (state: any, action: IAction) => {
   switch (action.type) {
     case "SET_STATE":
-      const {name, value} = action.payload;
+      const { name, value } = action.payload;
       return {
         ...state,
         [name]: value
-      }
-    case "SET_FORM_STATE": 
-      const { formValues } = state;
-      const _formValues = { ...formValues };
-      _formValues[action.payload.name] = action.payload.value;
-      return {
-        ...state,
-        formValues: _formValues
       }
     default:
       return state;
   }
 }
 
-const useForm = (initialState: any, callback: () => void, validate: () => string[]) => {
+// custom useForm hook to handle state, input changes, validation and form submit for all components globally
+const useForm = (initialState: any, callback: () => void, validate: () => {}) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { formValues, formErrors } = state;
 
   const handleChange = (event: any) => {
+    // hanlding input change and updating state accordingly
     event && event.preventDefault();
-    const {target: {name, value}} = event;
-    const {formValues} = state;
-    const _formValues = {...formValues}
-    _formValues[name] = +value
-    
+    const { target: { name, value } } = event;
+    const _formValues = { ...formValues }
+    _formValues[name] = value
+
     dispatch({
       type: "SET_STATE",
       payload: {
@@ -50,9 +49,10 @@ const useForm = (initialState: any, callback: () => void, validate: () => string
   }
 
   const handleSubmit = (event: any) => {
+    // hanlding form submit and validation of form
     event && event.preventDefault();
     const errors = validate();
-    if (errors.length > 0) {
+    if (!checkProperties(errors)) {
       dispatch({
         type: "SET_STATE",
         payload: {
@@ -61,7 +61,19 @@ const useForm = (initialState: any, callback: () => void, validate: () => string
         }
       })
       return;
-    } 
+    } else {
+      const _formErrors = { ...formErrors }
+      for (let error in _formErrors) {
+        _formErrors[error] = '';
+      }
+      dispatch({
+        type: "SET_STATE",
+        payload: {
+          name: 'formErrors',
+          value: _formErrors
+        }
+      })
+    }
     callback();
   }
 
