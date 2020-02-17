@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 
 // Importing custom useForm hook to handle state, input changes, validation and form submit for all components globally
 import useForm from '../hooks/useForm';
@@ -22,7 +22,7 @@ const initialState = {
 const Index: React.FC<{}> = () => {
 
   // Validating form input on form submit
-  const validate = () => {
+  const validate = (): {} => {
     const errors = { width: '', height: '', padding: '' };
     const { width, height, padding } = formValues;
 
@@ -42,9 +42,8 @@ const Index: React.FC<{}> = () => {
   }
 
   // Applying matrix on form submit
-  const applyMatrix = () => {
+  const applyMatrix = (): void => {
     const { width, height, padding } = formValues;
-    console.log({ width, height, padding })
     const pixelArray = draw(+width, +height, +padding);
     dispatch({
       type: "SET_STATE",

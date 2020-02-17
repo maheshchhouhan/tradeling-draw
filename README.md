@@ -6,6 +6,7 @@ Infinite recursive shape: To create a recursive function to draw boxes inside ea
 ## Built With
 
 * [NextJS with Typescript](https://nextjs.org/learn/excel/typescript) 
+* [Jest](https://jestjs.io/)
 
 ### Installing &  Running
 `cd tradeling-draw && npm i && npm run dev`

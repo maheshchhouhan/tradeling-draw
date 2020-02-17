@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Interface PixelMatrixProps to validate component incoming prop types
 interface PixelMatrixProps {
   matrix: number[][],

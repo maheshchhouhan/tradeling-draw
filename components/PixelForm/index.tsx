@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Interface PixelFormProps to validate component incoming prop types
 interface PixelFormProps {
   onFormSubmit: (event: any) => void,
@@ -8,7 +6,8 @@ interface PixelFormProps {
   formErrors: { width: string, height: string, padding: string }
 }
 
-const PixelForm: React.FC<PixelFormProps> = ({ onFormSubmit, onInputChange, formValues, formErrors }) => (
+// Stateless React Function Component to render form
+const PixelForm: React.SFC<PixelFormProps> = ({ onFormSubmit, onInputChange, formValues, formErrors }) => (
   <form onSubmit={onFormSubmit}>
     <div className='row'>
       <div className="col-md-3">
