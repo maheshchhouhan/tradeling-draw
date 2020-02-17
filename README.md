@@ -12,6 +12,7 @@ Infinite recursive shape: To create a recursive function to draw boxes inside ea
   
 ## Testing
 I am using jest to write unit tests inside `__tests__` folder and using `test_data.json` file to loop through and validate object return from draw function is equivalent to test data object
+
 `npm run test`
 
 ## Draw Recursive Fn
@@ -23,7 +24,7 @@ Base Case:
 
 Then i have main return array which calling draw function recursively after subtracting the padding after adding 2 to it to count the edges
 
-you can see more details on the `helpers/index.tsx` file.
+you can see more details inside `helpers/index.tsx` file.
 
 
 
