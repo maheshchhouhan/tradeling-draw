@@ -13,7 +13,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  local_dir: build
+  local_dir: .next
   github-token: $GITHUB_TOKEN
   on:
     branch: master
