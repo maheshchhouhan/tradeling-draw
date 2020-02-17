@@ -35,6 +35,8 @@ O(n^2) - Quadratic
 
 [![Build Status](https://travis-ci.com/maheshchhouhan/tradeling-draw.svg?token=5g9WeBNMTKUKzvhs5aWm&branch=master)](https://travis-ci.com/maheshchhouhan/tradeling-draw)
 
+![](screenshots/travis.png)
+
 ## Deployed on Now
 
 * [Tradeling - Infinite Recursive Shape](https://tradeling-draw.now.sh/)
