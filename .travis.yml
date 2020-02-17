@@ -11,8 +11,8 @@ script:
   - npm run build
 
 deploy:
-  providerL pages
+  provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   on:
-    branch: gh-pages
+    branch: MASTER
