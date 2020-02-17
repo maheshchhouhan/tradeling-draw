@@ -31,6 +31,10 @@ you can see more details inside `helpers/index.tsx` file.
 ### Big O 
 O(n^2) - Quadratic
 
+## Travis
+
+[![Build Status](https://travis-ci.com/maheshchhouhan/tradeling-draw.svg?token=5g9WeBNMTKUKzvhs5aWm&branch=master)](https://travis-ci.com/maheshchhouhan/tradeling-draw)
+
 ### Screen shots 
 
 1.  `Width: 20, Height:40, padding: 6)`
