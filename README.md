@@ -18,13 +18,11 @@ I am using jest to write unit tests inside `__tests__` folder and using `test_da
 
 ## Draw Recursive Fn
 
-Base Case: If width or height is less than or equal to zero then return empty []
+Base case if width or height <= padding + 2 then drawing inner most box
 
-1. If height is less than 2 then draw the last row
-2. if the width and height less or equal padding + 2 then draw inner box
-3. Returning array by calling draw function recursively by subtracting padding by 2 to handle the edges of inner arrays
+Returning array by calling draw fn recursively to create outer boxes
 
-you can see more details inside `helpers/index.tsx` file.
+More detailed comments inside `helpers/index.tsx` file.
 
 
 
